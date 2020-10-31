@@ -12,8 +12,8 @@ func main() {
 }
 
 func info() {
-  app.Name = "Simple pizza CLI"
-  app.Usage = "An example CLI for ordering pizza's"
-  app.Author = "Jeroenouw" 
+  app.Name = "Go Programmers CLI"
+  app.Usage = "A CLI for new Go Programmers"
+  app.Author = "JohnnyStein" 
   app.Version = "1.0.0"
 }
