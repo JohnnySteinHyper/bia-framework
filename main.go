@@ -11,6 +11,8 @@ func main() {
   }
 }
 
+var pizza = []string{"Enjoy your pizza with some delicious"}
+
 func info() {
   app.Name = "Go Programmers CLI"
   app.Usage = "A CLI for new Go Programmers"
