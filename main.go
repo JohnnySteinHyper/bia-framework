@@ -1,17 +1,13 @@
 package main
 
-import "github.com/urfave/cli"
+import (
+	"github.com/urfave/cli"
+	"os"
+	"fmt"
+	"log"
+)
 
 var app = cli.NewApp()
-
-func main() {
-  err := app.Run(os.Args)
-  if err != nil {
-    log.Fatal(err)
-  }
-}
-
-var pizza = []string{"Enjoy your pizza with some delicious"}
 
 func info() {
   app.Name = "Go Programmers CLI"
@@ -19,6 +15,8 @@ func info() {
   app.Author = "JohnnyStein" 
   app.Version = "1.0.0"
 }
+
+var pizza = []string{"Enjoy your pizza with some delicious"}
 
 func commands() {
   app.Commands = []cli.Command{
@@ -57,3 +55,14 @@ func commands() {
     },
   }
 }
+
+func main() {
+	info()
+	commands()
+
+  err := app.Run(os.Args)
+  if err != nil {
+    log.Fatal(err)
+  }
+}
+
