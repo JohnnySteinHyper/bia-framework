@@ -1,10 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"os"
-	"os/exec"
-	"syscall"
+	"github.com/anonymousdevhacker/bia/extras"
 )
 
 // docker run <container> cmd args
@@ -21,21 +19,9 @@ func main() {
 }
 
 func run() {
-	fmt.Printf("running %v\n", os.Args[2:])
-
-	cmd := exec.Command(os.Args[2], os.Args[3:]...)
-	cmd.Stdin = os.Stdin
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	cmd.SysProcAttr = &syscall.SysProcAttr{
-		Cloneflags: syscall.CLONE_NEWUTS | syscall.CLONE_NEWPID,
-	}
-
-	must(cmd.Run())
-}
-
-func must(err error) {
-	if err != nil {
-		panic(err)
+	switch os.Args[2] {
+	case "print":
+		arg1 := os.Args[3:]
+		extras.Print([]string(arg1))
 	}
 }
